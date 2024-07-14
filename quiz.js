@@ -1,18 +1,20 @@
-//function declaration to check answer
 function checkAnswer(){
-    let correctAnswer = "4";
+    const correctAnswer = "4";
 
-    //retrieve users answer
-    let userAnswer = document.querySelector("input[name=quiz]:checked").value;
-    
-    // getting users answer
-    if (userAnswer === correctAnswer) {
-        document.getElementById("feedback").textContent = "Correct! Well done!"
-    }
-    else {
-        document.getElementById("feedback").textContent = "That's incorrect. Try again!"
+    const selectedValue = document.querySelector('input[name="quiz"]:checked');
+    userAnswer = selectedValue.value;
+
+
+    const feedback = document.getElementById('feedback');
+
+    if (userAnswer === correctAnswer){
+        feedback.textContent = "Correct! Well done."
+        feedback.style.color = "green";
+    } else if (correctAnswer != userAnswer) {
+        feedback.textContent = "That's incorrect. Try again!"
+        feedback.style.color = "red";
     }
 }
 
-//button for funtion execution
-document.getElementById("submit-answer").addEventListener('click', checkAnswer);
+const submitAnswer = document.getElementById('submit-answer');
+submitAnswer.addEventListener('click', checkAnswer);
